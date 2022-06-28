@@ -13,7 +13,7 @@ describe("Home page", () => {
         screen.getByRole("heading", { name: /All products/i });
     });
 
-    //
+    // //
 
     it("render a accessible search box", () => {
         render(<Home products={mockProducts} categories={[]} />);
@@ -21,7 +21,7 @@ describe("Home page", () => {
         expect(searchInput).toHaveAccessibleName("Search");
     });
 
-    //
+    // //
 
     it("renders all products", () => {
         render(<Home products={mockProducts} categories={[]} />);
@@ -31,7 +31,7 @@ describe("Home page", () => {
         expect(listitems.length).toBe(3);
     });
 
-    //
+    // //
 
     it("renders all categories", () => {
         render(<Home products={mockProducts} categories={mockCategories} />);
@@ -41,18 +41,18 @@ describe("Home page", () => {
         expect(listitems.length).toBe(2);
     });
 
-    // it("renders 1 product per  category", () => {
-    //   render(<Home products={mockProducts} categories={mockCategories} />);
-    //   const categorylist = screen.getByRole("list", { name: /Mouse/i });
-    //   const { getAllByRole } = within(categorylist);
-    //   const listitems = getAllByRole("listitem");
-    //   expect(listitems.length).toBe(1);
-    // });
+    it("renders 1 product per  category", () => {
+        render(<Home products={mockProducts} categories={mockCategories} />);
+        const categorylist = screen.getByRole("list", { name: /LadiesClothing/i });
+        const { getAllByRole } = within(categorylist);
+        const listitems = getAllByRole("listitem");
+        expect(listitems.length).toBe(1);
+    });
 
     it("show only search results when search term is not empty", () => {
         render(<Home products={mockProducts} categories={mockCategories} />);
         const searchBox = screen.getByPlaceholderText(/Search products/i);
-        userEvent.type(searchBox, "mo");
+        userEvent.type(searchBox, "la");
 
         const searchResults = screen.getByRole("list", { name: /search results/i });
         expect(searchResults).toBeVisible();
