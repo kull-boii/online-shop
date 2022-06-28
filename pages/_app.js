@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
       quantity: quantity,
     });
     setCart(response.cart);
+    console.log(response.cart);
     return;
   };
 
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }) {
   const removeItem = async (productID) => {
     let response = await commerce.cart.remove(productID);
     setCart(response.cart);
+    console.log(response.cart);
     return;
   };
 
@@ -40,6 +42,7 @@ function MyApp({ Component, pageProps }) {
   const emptyCart = async () => {
     let response = await commerce.cart.empty();
     setCart(response.cart);
+    console.log(response.cart);
   };
 
   //    refresh the  cart

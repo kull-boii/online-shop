@@ -54,8 +54,7 @@ export default function CartDetail({ cart, updateQuantity, emptyCart }) {
                               handleUpdateQuantity(item.quantity - 1, item.id);
                             }}
                           >
-                            {" "}
-                            -{" "}
+                            -
                           </button>
                         </>
                       )}
