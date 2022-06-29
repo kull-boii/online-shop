@@ -70,7 +70,7 @@ describe("Addressform", () => {
     expect(countrySelect).toHaveValue("IN");
 
     expect(subdivisionSelect).toHaveValue("DL");
-    screen.getByText(/delivary-₹0.00/i);
+    screen.getByText(/delivery-₹0.00/i);
   });
 
   //
